@@ -1,0 +1,278 @@
+:root {
+    --nexus-primary: #00d2ff;
+    --nexus-secondary: #3a7bd5;
+    --nexus-accent: #d4af37;
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --card-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+}
+
+.nexus-body {
+    background: radial-gradient(circle at 50% 50%, #0a0a0a 0%, #000 100%);
+    min-height: 100vh;
+}
+
+.nexus-container {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* ─── NEXUS SIDEBAR ─── */
+.nexus-sidebar {
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border-right: 1px solid var(--glass-border);
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+}
+
+.nexus-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+    padding: 0 10px;
+}
+
+.nexus-logo i {
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--nexus-primary), var(--nexus-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.nexus-logo span {
+    font-size: 1.5rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+    color: #fff;
+    text-transform: uppercase;
+}
+
+.agent-nav {
+    flex: 1;
+}
+
+.agent-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 18px;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    color: #888;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid transparent;
+}
+
+.agent-item:hover {
+    background: var(--glass-bg);
+    color: #fff;
+    border-color: var(--glass-border);
+}
+
+.agent-item.active {
+    background: linear-gradient(90deg, rgba(0, 210, 255, 0.1), transparent);
+    color: var(--nexus-primary);
+    border-left: 3px solid var(--nexus-primary);
+}
+
+.agent-item i {
+    font-size: 1.2rem;
+    width: 24px;
+    text-align: center;
+}
+
+.agent-status {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    margin-left: auto;
+}
+
+.status-online { background: #00ff88; box-shadow: 0 0 10px #00ff88; }
+.status-busy { background: #ffaa00; box-shadow: 0 0 10px #ffaa00; }
+.status-offline { background: #555; }
+
+/* ─── NEXUS MAIN CONTENT ─── */
+.nexus-main {
+    padding: 40px;
+    overflow-y: auto;
+    position: relative;
+}
+
+.nexus-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.user-welcome h1 {
+    font-size: 2.2rem;
+    font-weight: 700;
+}
+
+.user-welcome p {
+    color: #888;
+    margin-top: 5px;
+}
+
+/* ─── COMMAND BAR ─── */
+.command-bar-wrap {
+    position: absolute;
+    bottom: 40px;
+    left: 40px;
+    right: 40px;
+    z-index: 200;
+}
+
+.command-bar {
+    background: rgba(20, 20, 20, 0.8);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: 15px 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    transition: all 0.3s;
+}
+
+.command-bar:focus-within {
+    border-color: var(--nexus-primary);
+    box-shadow: 0 20px 50px rgba(0, 210, 255, 0.2);
+    transform: translateY(-5px);
+}
+
+.command-bar i {
+    font-size: 1.4rem;
+    color: var(--nexus-primary);
+}
+
+.command-bar input {
+    flex: 1;
+    background: none;
+    border: none;
+    outline: none;
+    color: #fff;
+    font-size: 1.1rem;
+    font-family: inherit;
+}
+
+/* ─── AGENT GRID ─── */
+.agent-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 25px;
+}
+
+.agent-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    border-radius: 24px;
+    padding: 30px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    position: relative;
+    overflow: hidden;
+}
+
+.agent-card:hover {
+    transform: translateY(-10px);
+    background: rgba(255, 255, 255, 0.05);
+    border-color: var(--nexus-primary);
+}
+
+.agent-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(0, 210, 255, 0.05) 0%, transparent 70%);
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.agent-card:hover::before {
+    opacity: 1;
+}
+
+.agent-card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: inline-block;
+}
+
+.agent-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.agent-card p {
+    color: #888;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.agent-card-stats {
+    display: flex;
+    gap: 20px;
+    border-top: 1px solid var(--glass-border);
+    padding-top: 20px;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-val {
+    font-weight: 700;
+    color: var(--nexus-primary);
+    font-size: 1.1rem;
+}
+
+.stat-label {
+    font-size: 0.75rem;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-summon {
+    background: linear-gradient(135deg, var(--nexus-primary), var(--nexus-secondary));
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 20px;
+    transition: opacity 0.3s;
+}
+
+.btn-summon:hover {
+    opacity: 0.9;
+}
+
+/* ─── ANIMATIONS ─── */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.agent-card {
+    animation: fadeIn 0.6s ease-out forwards;
+}

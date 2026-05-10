@@ -1,0 +1,31 @@
+/* FINANCE SPECIALIZED THEME */
+:root {
+    --fin-accent: #ffaa00;
+    --fin-bg: rgba(255, 170, 0, 0.05);
+}
+
+.finance-interface {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.ledger-vibrant {
+    background: #050505;
+    border: 1px solid var(--fin-accent);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 0 30px rgba(255, 170, 0, 0.1);
+}
+
+.finance-stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.fin-card {
+    border-left: 4px solid var(--fin-accent);
+    background: var(--glass-bg);
+    padding: 15px;
+}

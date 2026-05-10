@@ -1,0 +1,34 @@
+# XAMPP/PHP specific
+php.ini
+*.log
+*.tmp
+*.bak
+
+# Sensitive data
+config.php
+db.php
+database.sql
+*_config.php
+*_secret.php
+credentials.php
+*.sql
+*.txt
+*.json
+*.env
+*.log
+*.bak
+
+# Python
+__pycache__/
+*.pyc
+venv/
+.venv/
+
+# Node
+node_modules/
+dist/
+build/
+
+# OS specific
+.DS_Store
+Thumbs.db

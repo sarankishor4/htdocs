@@ -1,0 +1,108 @@
+/* ─── PHAZE AI: COMPACT BUSINESS OS CORE ─── */
+:root {
+    --bg-main: #0a0a0b;
+    --bg-card: #151518;
+    --bg-glass: rgba(21, 21, 24, 0.8);
+    --border-color: rgba(255, 255, 255, 0.08);
+    --text-main: #ffffff;
+    --text-dim: #94a3b8;
+    
+    --accent-ceo: #ff4757;
+    --accent-hr: #7478f6;
+    --accent-sales: #2ed573;
+    --accent-ops: #ffa502;
+    --accent-marketing: #ff6b81;
+    --accent-primary: #00f2ff;
+    
+    --font-ui: 'Inter', system-ui, sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+    
+    /* COMPACT SIZES */
+    font-size: 14px; 
+}
+
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-main);
+    font-family: var(--font-ui);
+    line-height: 1.4;
+    min-height: 100vh;
+    /* Ensure visibility */
+    display: block !important;
+}
+
+/* ─── AURORA BACKGROUND ─── */
+.aurora-bg {
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    z-index: -1;
+    background: radial-gradient(circle at 0% 0%, rgba(255, 71, 87, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 100% 100%, rgba(0, 242, 255, 0.04) 0%, transparent 40%);
+}
+
+/* ─── COMPACT GLASS CARDS ─── */
+.glass-card {
+    background: var(--bg-glass);
+    backdrop-filter: blur(25px);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    transition: all 0.25s ease;
+}
+
+.glass-card:hover {
+    border-color: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* ─── COMPACT TYPOGRAPHY ─── */
+h1, h2, h3 { font-family: var(--font-heading); font-weight: 800; letter-spacing: -0.5px; }
+h1 { font-size: 1.4rem; }
+h2 { font-size: 1.2rem; }
+h3 { font-size: 0.95rem; }
+
+p { font-size: 0.8rem; color: var(--text-dim); }
+.small-label { font-size: 0.65rem; font-weight: 800; letter-spacing: 1px; text-transform: uppercase; color: var(--text-dim); }
+
+/* ─── ACTION BUTTONS ─── */
+.btn-primary {
+    background: var(--accent-ceo);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 0.75rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.2s;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ─── AUTH FORM ─── */
+.form-group { margin-bottom: 18px; }
+.form-group label { display: block; font-size: 0.65rem; color: var(--text-dim); margin-bottom: 8px; font-weight: 800; text-transform: uppercase; }
+.form-group input {
+    width: 100%; background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); padding: 10px 14px; border-radius: 10px; color: #fff; font-size: 0.8rem; outline: none;
+}
+
+/* ─── UTILITIES ─── */
+.flex-between { display: flex; justify-content: space-between; align-items: center; }
+.gap-10 { gap: 10px; }
+.mt-20 { margin-top: 20px; }
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
